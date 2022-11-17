@@ -1,0 +1,62 @@
+//QUE ES JSX
+/* Javascript Syntax Extension 
+
+Extension del lenguaje  desarrollado por meta(facebook) para React
+
+Parece JS pero nos permite trabajar con codigo HTML, es un lenguaje de templates
+que muestra el HTML con la funcionalidad de Javascript
+
+Existen reglas para trabajar con JSX 
+
+Etiquetas deben tener un cierre />
+Cada componente debe tener un return
+En ese return debe haber maximo un solo elemento en el nivel maximo,
+es decir si hay mas elementos, deben ir contenido dentro de 1 elemento (div, <> fragment, etc)
+*/
+
+//se importa el componente de Header
+import Header from "./components/Header";
+
+
+function App() {
+   
+  function sumar(){
+      console.log(3+4);
+  }
+  sumar()
+
+  const edad = 18
+
+  //este seria el return obligatorio // principal componente que tendra mas componentes
+  return (
+    
+    // este div seria el unico elemento de retorno, que contiene mas elementos (h1, img, input)
+    <div> 
+
+        {/* podemos agregar codigo js entre { } */}
+        {2+8 /* se vera en la pagina el resultado*/}
+      {/* si un elemento tiene etiqueta de apertura y cierre, deben ir las 2 */}
+
+
+      <h1>Hola gente</h1>
+      <p>{'Un parrafo de prueba'.toUpperCase() /*para usar el metodo de string, 
+      debemos colocarlo entre ' ' y todo ello dentro de { } */}</p>
+
+      { <p>Edad: {edad}</p> /* podemos mostrar en HTML una variable con las { } */}
+      {/* las etiquetas que solo tienen apertura se deben cerrar con /> */}
+      <img src="" alt="" />
+      <label >Label de input: </label>
+      <input type="text" />
+
+      {/* y podemos usar ternarios por ejemplo */}
+      { edad >=18 ? console.log("Puede entrar") : console.log("No puede entrar")}
+
+    </div>
+  )
+
+}
+
+//los componentes se dividen en 2 partes, antes del return, se pueden crear funciones, variables etc.
+// dentro del return solo html que se mostrará en pagina, a no ser que se coloque entre { } el codigo js
+
+export default App
